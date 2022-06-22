@@ -1,5 +1,5 @@
-Package: com.p-x9.forceinsetgrouped
-Name: ForceInsetGrouped
+Package: com.p-x9.forceuitableviewstyle
+Name: ForceUITableViewStyle
 Version: 0.0.1
 Architecture: iphoneos-arm
 Description: An awesome Orion tweak!

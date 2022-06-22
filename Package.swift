@@ -69,19 +69,19 @@ let package = Package(
     platforms: [.iOS(.v13)],
     products: [
         .library(
-            name: "ForceInsetGrouped",
-            targets: ["ForceInsetGrouped"]
+            name: "ForceUITableViewStyle",
+            targets: ["ForceUITableViewStyle"]
         ),
     ],
     targets: [
         .target(
-            name: "ForceInsetGroupedC",
+            name: "ForceUITableViewStyleC",
             cSettings: [.unsafeFlags(cFlags)],
             cxxSettings: [.unsafeFlags(cxxFlags)]
         ),
         .target(
-            name: "ForceInsetGrouped",
-            dependencies: ["ForceInsetGroupedC"],
+            name: "ForceUITableViewStyle",
+            dependencies: ["ForceUITableViewStyleC"],
             swiftSettings: [.unsafeFlags(swiftFlags)]
         ),
     ]

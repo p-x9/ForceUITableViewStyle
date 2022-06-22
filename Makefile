@@ -9,10 +9,10 @@ INSTALL_TARGET_PROCESSES = SpringBoard
 
 include $(THEOS)/makefiles/common.mk
 
-TWEAK_NAME = ForceInsetGrouped
+TWEAK_NAME = ForceUITableViewStyle
 
-ForceInsetGrouped_FILES = $(shell find Sources/ForceInsetGrouped -name '*.swift') $(shell find Sources/ForceInsetGroupedC -name '*.m' -o -name '*.c' -o -name '*.mm' -o -name '*.cpp')
-ForceInsetGrouped_SWIFTFLAGS = -ISources/ForceInsetGroupedC/include
-ForceInsetGrouped_CFLAGS = -fobjc-arc -ISources/ForceInsetGroupedC/include
+$(TWEAK_NAME)_FILES = $(shell find Sources/ForceUITableViewStyle -name '*.swift') $(shell find Sources/ForceUITableViewStyleC -name '*.m' -o -name '*.c' -o -name '*.mm' -o -name '*.cpp')
+$(TWEAK_NAME)_SWIFTFLAGS = -ISources/ForceUITableViewStyleC/include
+$(TWEAK_NAME)_CFLAGS = -fobjc-arc -ISources/ForceUITableViewStyleC/include
 
 include $(THEOS_MAKE_PATH)/tweak.mk

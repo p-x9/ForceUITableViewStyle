@@ -1,5 +1,5 @@
 import Orion
-import ForceInsetGroupedC
+import ForceUITableViewStyleC
 import UIKit
 
 struct tweak: HookGroup {}
