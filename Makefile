@@ -16,3 +16,5 @@ $(TWEAK_NAME)_SWIFTFLAGS = -ISources/ForceUITableViewStyleC/include
 $(TWEAK_NAME)_CFLAGS = -fobjc-arc -ISources/ForceUITableViewStyleC/include
 
 include $(THEOS_MAKE_PATH)/tweak.mk
+SUBPROJECTS += forceuitableviewstylepref
+include $(THEOS_MAKE_PATH)/aggregate.mk

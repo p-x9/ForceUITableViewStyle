@@ -1,0 +1,4 @@
+module ForceUITableViewStylePrefC {
+    umbrella "."
+    export *
+}
