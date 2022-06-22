@@ -7,11 +7,18 @@ struct tweak: HookGroup {}
 class NSCoder_Hook: ClassHook<UINibDecoder> {
     typealias Group = tweak
     
+    @Property(.assign) var isUITableViewTarget = false
+    
     func decodeIntegerForKey(_ key: String) -> Int {
-        if key == "UITableViewStyle" || key == "UIStyle" {
+        if key == "UITableViewStyle" || (isUITableViewTarget && key == "UIStyle") {
             return UITableView.Style.insetGrouped.rawValue
         }
         return orig.decodeIntegerForKey(key)
+    }
+    
+    // orion:new
+    func useUITableView() {
+        isUITableViewTarget = true
     }
 }
 
@@ -26,10 +33,11 @@ class UITableView_Hook: ClassHook<UITableView> {
     }
     
     func initWithCoder(_ coder: NSCoder) -> UITableView? {
+        coder.perform(#selector(NSCoder_Hook.useUITableView))
+        
         let target = orig.initWithCoder(coder)
         return target
     }
-    
 }
 
 struct ForceInsetGrouped: Tweak {
