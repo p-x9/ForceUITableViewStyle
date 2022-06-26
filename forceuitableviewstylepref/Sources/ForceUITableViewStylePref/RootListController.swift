@@ -31,6 +31,20 @@ class RootListController: PSListController {
         }
     }
     
+    override func readPreferenceValue(_ specifier: PSSpecifier!) -> Any! {
+        let prefs = NSDictionary(contentsOfFile: Self.PREF_PATH)
+        let key = specifier.property(forKey: "key") as Any
+        let `default` = specifier.property(forKey: "default") as Any
+        
+        var value = prefs?.object(forKey: key)
+        
+        if value == nil {
+            value = `default`
+            self.setPreferenceValue(value, specifier: specifier)
+        }
+
+        return value
+    }
 
     override func setPreferenceValue(_ value: Any!, specifier: PSSpecifier!) {
         let prefs = NSMutableDictionary(contentsOfFile: Self.PREF_PATH) ?? .init()
